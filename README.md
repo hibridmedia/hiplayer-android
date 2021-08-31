@@ -117,10 +117,9 @@ Add the below snippet into the application manifest file inside the <activity> t
 
 <br><br>
 	
-	
-	<h3>Add the HibridPlayer Player to the activity using Java (if using Kotlin, check next slide)</h3>
+<h3>Add the HibridPlayer Player to the activity using Java (if using Kotlin, check next slide)</h3>
 
-HibridApplication app = (HibridApplication) getApplication();
+	HibridApplication app = (HibridApplication) getApplication();
 
 	HibridPlayerSettings settings = new HibridPlayerSettings(
 
