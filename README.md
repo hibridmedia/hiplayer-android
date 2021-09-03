@@ -1,110 +1,74 @@
 
 
-**HibridPlayer**
+<h1>HibridPlayer</h1>
+<br>
+<h2>Documentation</h2>
+<br>
 
-Documentation
-
-
-
-
-
-**Optional (Setup a new project)**
+<h3>Optional (Setup a new project)</h3>
 
 In Android Studio, create a new project of type **Empty Activity.**
 
 If your project is already created, you can skip this step.
 
-Our player works with both Kotlin and Java. Yet, you will need to note which language you
+Our player works with both Kotlin and Java. Yet, you will need to note which language you are using for later reference.
 
-are using for later reference.
+For the Android Minimum SDK, choose API 21. Earlier APIs can also be supported if needed. When done, click Finish to create the project.
 
-For the Android Minimum SDK, choose API 21. Earlier APIs can also be supported if needed.
-
-When done, click Finish to create the project.
-
-
-
-
+<br>
 
 **Import the .AAR library in the project needed as following**
 
-\1. Within your project, create a new module
+* Within your project, create a new module (usually File -> New -> New Module) and select “Import JAR/AAR Package”
 
-(usually File -> New -> New Module) and
+* Click Next
 
-select “Import JAR/AAR Package”
+<br>
 
-\2. Click Next
+<h3>Select the AAR</h3>
 
+* Select the HibridPlayer.aar file
 
+* Click on **Import** / **Finish** and wait till thegradle build ends
 
+<br>
 
-
-**Select the AAR**
-
-\1. Select the HibridPlayer.aar file
-
-\2. Click on **Import** / **Finish** and wait till the
-
-gradle build ends
+<h3>After Importing</h3>
 
 
+Within your project view (in Android Studio), you should be able to see the module **HibridPlayer**
 
+This means that the code was imported successfully
 
+<br>
 
-**After Importing**
+<h3>Get the name of the library</h3>
 
-●
-
-●
-
-Within your project view (in Android
-
-Studio), you should be able to see the
-
-module **HibridPlayer**
-
-This means that the code was imported
-
-successfully
-
-
-
-
-
-**Get the name of the library**
-
-Open the build.gradle file inside the imported module
-
-Search for the line that looks like:
+Open the build.gradle file inside the imported module Search for the line that looks like:
 
 artifacts.add("default", file(**'HibridPlayer**.aar'))
 
 Note the name of the file (HibridPlayer) in this case.
 
+<br>
 
+<h3>Add the dependencies to the app/gradle under the dependencies tag as shown in the screenshot</h3>
 
-
-
-**Add the dependencies to the app/gradle under the dependencies tag as shown in the**
-
-**screenshot**
-
-Open the build.gradle file under the app folder and add the below dependencies
+ Open the build.gradle file under the app folder and add the below dependencies
 
 dependencies {
 
-implementation project("**:HibridPlayer**")
+	implementation project("**:HibridPlayer**")
 
-implementation 'com.google.android.exoplayer:exoplayer:2.12.1'
+	implementation 'com.google.android.exoplayer:exoplayer:2.12.1'
 
-implementation 'com.google.android.gms:play-services-analytics:17.0.0'
+	implementation 'com.google.android.gms:play-services-analytics:17.0.0'
 
-implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.21.4'
+	implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.21.4'
 
-implementation 'com.google.android.exoplayer:extension-ima:2.12.1'
+	implementation 'com.google.android.exoplayer:extension-ima:2.12.1'
 
-implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
 
 }
 
@@ -113,158 +77,118 @@ Change the entry **HibridPlayer** to whatever the file was named (from previous 
 Click on **Sync Now** to sync the project gradle
 
 
+<br>
+<br>
 
 
+<h3>Include the hibrid player in the activity layout</h3>
 
-**Include the hibrid player in the activity layout**
+Add the below snippet within the projectactivity layout to include the HibridPlayer layout.
 
-\1. Add the below snippet within the project
-
-activity layout to include the HibridPlayer
-
-layout.
-
-<include
-
-layout="@layout/hibrid\_player"
-
-android:id="@+id/includeLayout"
-
-/>
+	<include layout="@layout/hibrid_player"
+	android:id="@+id/includeLayout"
+	/>
 
 
+<br><br>
+
+<h3>To Disable the activity to restart on orientation</h3>
+
+Add the below snippet into the application manifest file inside the <activity> tag for prope player orientation handling.Need to add the below in the app manifest as in the screenshot in the activity level
+
+	android:configChanges="keyboardHidden|orientation|screenSize"
 
 
-
-**To Disable the activity to restart on orientation**
-
-Add the below snippet into the application
-
-manifest file inside the <activity> tag for proper
-
-player orientation handling.
-
-Need to add the below in the app manifest as in
-
-the screenshot in the activity level
-
-android:configChanges="keyboardHidden|orient
-
-ation|screenSize"
-
-
-
-
-
-**Extend HibridApplication**
+<h3>Extend HibridApplication</h3>
 
 **If you are using an application: (Screenshot 1)**
 
-\1. In your application file, import HibridApplication
+- In your application file, import HibridApplication
 
-import app.hibrid.hibridplayer.Utils.HibridApplication
+	import app.hibrid.hibridplayer.Utils.HibridApplication
 
-\1. Set your class to extend HibridApplication
+-  Set your class to extend HibridApplication
 
-If using an application
+**If you are not using an application: Open the app manifest and edit the application name attribute to the following:**
 
-**If you are not using an application:**
-
-Open the app manifest and edit the application name attribute to
-
-the following:
-
-android:name="app.hibrid.hibridplayer.Utils.HibridApplication"
-
-If not using an application
+	android:name="app.hibrid.hibridplayer.Utils.HibridApplication"
 
 
 
+<br><br>
+	
+<h3>Add the HibridPlayer Player to the activity using Java (if using Kotlin, check next slide)</h3>
 
+	HibridApplication app = (HibridApplication) getApplication();
 
-**Add the HibridPlayer Player to the activity using Java (if using Kotlin, check next**
+	HibridPlayerSettings settings = new HibridPlayerSettings(
 
-**slide)**
+	withIma(boolean),
 
-HibridApplication app = (HibridApplication) getApplication();
+	withDai(boolean),
 
-HibridPlayerSettings settings = new HibridPlayerSettings(
+	"imaURL",
 
-withIma(boolean),
+	"assetKey",
 
-withDai(boolean),
+	"apiKey",
 
-"imaURL",
+	autoplay(boolean),
 
-"assetKey",
+	"baseUrl",
 
-"apiKey",
+	"channelKey");
 
-autoplay(boolean),
-
-"baseUrl",
-
-"channelKey");
-
-HibridPlayer player = new HibridPlayer(this,settings,findViewById(R.id.includeLayout),app);
-
+	HibridPlayer player = new HibridPlayer(this,settings,findViewById(R.id.includeLayout),app);
 
 
 
+<br>
 
-**Add the HibridPlayer Player to the activity using Kotlin**
+	<h3>Add the HibridPlayer Player to the activity using Kotlin</h3>
 
-val myApplication = application as HibridApplication
+	val myApplication = application as HibridApplication
 
-val settings = HibridPlayerSettings(
+	val settings = HibridPlayerSettings(
 
-channelKey = "key",
+	channelKey = "key",
 
-autoplay = true,
+	autoplay = true,
 
-daiAssetKey = "assetkey",
+	daiAssetKey = "assetkey",
 
-daiApiKey = "apikey",
+	daiApiKey = "apikey",
 
-imaUrl = "imaURl",
+	imaUrl = "imaURl",
 
-withIma = true,
+	withIma = true,
 
-withDai = true,
+	withDai = true,
 
-baseUrl = "baseUrl"
+	baseUrl = "baseUrl"
 
-)
+	)
 
-HibridPlayer(
+	HibridPlayer(
 
-context = this,
+	context = this,
 
-hibridSettings = settings,
+	hibridSettings = settings,
 
-includeLayout = includeLayout,
+	includeLayout = includeLayout,
 
-application = myApplication
+	application = myApplication
 
-)
-
-
-
+	)
 
 
-**Extend the HibridActivity instead of AppCompatActivity**
+<br>
 
-Set your activity to extend HibridActivity instead of
 
-AppCompatActivity to get the player into your
+<h3>Extend the HibridActivity instead of AppCompatActivity</h3>
 
-activity.
+Set your activity to extend **HibridActivity** instead of AppCompatActivity to get the player into your activity.
 
-The HibridActivity will handle to
+The HibridActivity will handle to pause/resume/destroy the player upon the activity life cycle plus will have listeners for the volume and orientation change.
 
-pause/resume/destroy the player upon the activity
-
-life cycle plus will have listeners for the volume and
-
-orientation change.
-
+> Hibrid Player 
