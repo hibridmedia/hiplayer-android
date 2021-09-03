@@ -17,6 +17,11 @@ For the Android Minimum SDK, choose API 21. Earlier APIs can also be supported i
 
 <br>
 
+
+![alt text](https://github.com/hibridmedia/hiplayer-android/edit/main/readmeimages/1.png)
+
+
+
 **Import the .AAR library in the project needed as following**
 
 * Within your project, create a new module (usually File -> New -> New Module) and select “Import JAR/AAR Package”
