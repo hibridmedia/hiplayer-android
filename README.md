@@ -18,7 +18,7 @@ For the Android Minimum SDK, choose API 21. Earlier APIs can also be supported i
 <br>
 
 
-![alt text](https://github.com/hibridmedia/hiplayer-android/edit/main/readmeimages/1.png)
+[comment]: <> (![alt text]&#40;https://github.com/hibridmedia/hiplayer-android/edit/main/readmeimages/1.png&#41;)
 
 
 
