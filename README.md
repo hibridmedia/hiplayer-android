@@ -24,38 +24,10 @@ For the Android Minimum SDK, choose API 21. Earlier APIs can also be supported i
 
 **Import the .AAR library in the project needed as following**
 
-* Within your project, create a new module (usually File -> New -> New Module) and select “Import JAR/AAR Package”
-
-* Click Next
+* Within your project, create a new directory and copy to it the  HibridPlayer.aar file”
 
 <br>
 
-<h3>Select the AAR</h3>
-
-* Select the HibridPlayer.aar file
-
-* Click on **Import** / **Finish** and wait till thegradle build ends
-
-<br>
-
-<h3>After Importing</h3>
-
-
-Within your project view (in Android Studio), you should be able to see the module **HibridPlayer**
-
-This means that the code was imported successfully
-
-<br>
-
-<h3>Get the name of the library</h3>
-
-Open the build.gradle file inside the imported module Search for the line that looks like:
-
-artifacts.add("default", file(**'HibridPlayer**.aar'))
-
-Note the name of the file (HibridPlayer) in this case.
-
-<br>
 
 <h3>Add the dependencies to the app/gradle under the dependencies tag as shown in the screenshot</h3>
 
@@ -63,7 +35,7 @@ Note the name of the file (HibridPlayer) in this case.
 
 dependencies {
 
-	implementation project("**:HibridPlayer**")
+	implementation files('../libs/HibridPlayer.aar')
 
 	implementation 'com.google.android.exoplayer:exoplayer:2.12.1'
 
@@ -90,10 +62,14 @@ Click on **Sync Now** to sync the project gradle
 
 Add the below snippet within the projectactivity layout to include the HibridPlayer layout.
 
-	<include layout="@layout/hibrid_player"
-	android:id="@+id/includeLayout"
-	/>
-
+    <app.hibrid.hibridplayer.view.HibridPlayerView
+        android:id="@+id/id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:autoPlay="true|false"
+        app:channelKey="<CHannelKeyName>"
+        app:lisence="<API-KEY>"
+         />
 
 <br><br>
 
@@ -103,10 +79,9 @@ Add the below snippet into the application manifest file inside the <activity> t
 
 	android:configChanges="keyboardHidden|orientation|screenSize"
 
-
 <h3>Extend HibridApplication</h3>
 
-**If you are using an application: (Screenshot 1)**
+**If you are using an application: 
 
 - In your application file, import HibridApplication
 
@@ -118,77 +93,9 @@ Add the below snippet into the application manifest file inside the <activity> t
 
 	android:name="app.hibrid.hibridplayer.Utils.HibridApplication"
 
-
-
 <br><br>
-	
-<h3>Add the HibridPlayer Player to the activity using Java (if using Kotlin, check next slide)</h3>
-
-	HibridApplication app = (HibridApplication) getApplication();
-
-	HibridPlayerSettings settings = new HibridPlayerSettings(
-
-	withIma(boolean),
-
-	withDai(boolean),
-
-	"imaURL",
-
-	"assetKey",
-
-	"apiKey",
-
-	autoplay(boolean),
-
-	"baseUrl",
-
-	"channelKey");
-
-	HibridPlayer player = new HibridPlayer(this,settings,findViewById(R.id.includeLayout),app);
-
-
 
 <br>
-
-	<h3>Add the HibridPlayer Player to the activity using Kotlin</h3>
-
-	val myApplication = application as HibridApplication
-
-	val settings = HibridPlayerSettings(
-
-	channelKey = "key",
-
-	autoplay = true,
-
-	daiAssetKey = "assetkey",
-
-	daiApiKey = "apikey",
-
-	imaUrl = "imaURl",
-
-	withIma = true,
-
-	withDai = true,
-
-	baseUrl = "baseUrl"
-
-	)
-
-	HibridPlayer(
-
-	context = this,
-
-	hibridSettings = settings,
-
-	includeLayout = includeLayout,
-
-	application = myApplication
-
-	)
-
-
-<br>
-
 
 <h3>Extend the HibridActivity instead of AppCompatActivity</h3>
 
