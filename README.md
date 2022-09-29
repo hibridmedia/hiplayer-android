@@ -37,15 +37,15 @@ dependencies {
 
 	implementation files('../libs/HibridPlayer.aar')
 
-	implementation 'com.google.android.exoplayer:exoplayer:2.12.1'
+	implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
 
-	implementation 'com.google.android.gms:play-services-analytics:17.0.0'
+	implementation 'com.google.android.gms:play-services-analytics:18.0.2'
 
-	implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.21.4'
+	implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.28.2'
 
-	implementation 'com.google.android.exoplayer:extension-ima:2.12.1'
+	implementation 'com.google.android.exoplayer:extension-ima:2.18.1'
 
-	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.0"
 
 }
 
