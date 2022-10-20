@@ -97,10 +97,10 @@ Add the below snippet into the application manifest file inside the <activity> t
 
 <br>
 
-<h3>Extend the HibridActivity instead of AppCompatActivity</h3>
+<h3>Extend the HibridActivity instead of AppCompatActivity or HibridFragment instead of Fragment()</h3>
 
 Set your activity to extend **HibridActivity** instead of AppCompatActivity to get the player into your activity.
-
-The HibridActivity will handle to pause/resume/destroy the player upon the activity life cycle plus will have listeners for the volume and orientation change.
+Set your activity to extend **HibridFragment** instead of Fragment to get the player into your fragment.
+The HibridActivity/HibridFragment will handle to pause/resume/destroy the player upon the activity life cycle plus will have listeners for the volume and orientation change.
 
 > Hibrid Player 
