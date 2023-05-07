@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/hiplayer-androidRemote.iml" filepath="$PROJECT_DIR$/.idea/hiplayer-androidRemote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HibridLibraryApplication.iml" filepath="$PROJECT_DIR$/.idea/HibridLibraryApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.iml" filepath="$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/HibridPlayer/HibridLibraryApplication.HibridPlayer.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HibridLibraryApplication.app.unitTest.iml" />
     </modules>
   </component>
 </project>
